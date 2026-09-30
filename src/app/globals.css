@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
+@custom-variant dark (.dark &, &.dark);
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Sahara Brand Colors (CSS Variables for theme flexibility) */
+  --color-foreground: #000000;
+  --color-background: #FFFDF6;
+  --color-brand-green: #008035;
+  --color-brand-green-hover: #006e2e;
+  --color-brand-green-light: rgba(0, 128, 53, 0.08);
+  --color-brand-green-glow: rgba(0, 128, 53, 0.16);
+  --color-brand-black: #000000;
+  --color-brand-paper: #FFFDF6;
+  --color-brand-surface: #F6F3E9;
+  --color-brand-surface-card: #FFFFFF;
+  --color-brand-muted: #595854;
+  --color-brand-border: rgba(0, 0, 0, 0.08);
+  --color-brand-border-strong: rgba(0, 0, 0, 0.16);
+
+  /* Fonts (configured in layout.tsx) */
+  --font-display: var(--font-grain), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-urbanist), system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --color-foreground: #FFFFFF;
+  --color-background: #0A0A0A;
+  --color-brand-paper: #0A0A0A;
+  --color-brand-surface: #141414;
+  --color-brand-surface-card: #18181B;
+  --color-brand-black: #FFFFFF;
+  --color-brand-muted: #A1A1AA;
+  --color-brand-border: rgba(255, 255, 255, 0.12);
+  --color-brand-border-strong: rgba(255, 255, 255, 0.22);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-foreground: var(--color-foreground);
+  --color-background: var(--color-background);
+  --color-brand-green: var(--color-brand-green);
+  --color-brand-green-hover: var(--color-brand-green-hover);
+  --color-brand-green-light: var(--color-brand-green-light);
+  --color-brand-green-glow: var(--color-brand-green-glow);
+  --color-brand-black: var(--color-brand-black);
+  --color-brand-paper: var(--color-brand-paper);
+  --color-brand-surface: var(--color-brand-surface);
+  --color-brand-surface-card: var(--color-brand-surface-card);
+  --color-brand-muted: var(--color-brand-muted);
+  --color-brand-border: var(--color-brand-border);
+  --color-brand-border-strong: var(--color-brand-border-strong);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+/* Base Body Styles */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display Headline Utility */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Hero Section Custom CSS */
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.06;
+  color: var(--color-brand-black);
+}
+
+.hero-subhead {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-brand-muted);
+}
+
+/* Background Radial Glow Utility */
+.hero-glow {
+  background: radial-gradient(circle at 50% 30%,
+      rgba(0, 128, 53, 0.12) 0%,
+      rgba(0, 128, 53, 0.04) 45%,
+      rgba(255, 253, 246, 0) 70%);
+}
+
+.hero-glow-accent {
+  background: radial-gradient(circle at 80% 20%,
+      rgba(0, 0, 0, 0.04) 0%,
+      rgba(0, 128, 53, 0.08) 35%,
+      rgba(255, 253, 246, 0) 70%);
+}
+
+/* Card Subtle Shadow */
+.card-shadow {
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.card-shadow-hover:hover {
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
