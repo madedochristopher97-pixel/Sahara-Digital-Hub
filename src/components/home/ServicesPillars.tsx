@@ -17,7 +17,6 @@ import {
   Server,
   Smartphone,
   Cpu,
-  Layers,
 } from 'lucide-react';
 import { CardTopRightImage } from '@/components/ui/CardTopRightImage';
 import { ScrollReveal } from '@/components/ui/Parallax';
@@ -26,16 +25,17 @@ export function ServicesPillars() {
   return (
     <section className="py-20 sm:py-28" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-        {/* Section Heading with All Capabilities Link */}
+        {/* Section Heading with Centrally Placed Words & Button */}
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col items-center text-center space-y-6 max-w-3xl mx-auto">
             <SectionHeading
+              align="center"
               kicker="Core Offerings"
               plainLine="Two Disciplines."
               accentLine="One Unified Commercial Standard."
               subhead="We eliminate the friction between creative agencies and technical software consultancies. Explore both specialized practices below."
             />
-            <div className="shrink-0">
+            <div className="pt-2">
               <Button href="/services" variant="secondary" icon={<ArrowRight className="w-4 h-4" />}>
                 View All Capabilities Directory
               </Button>
@@ -175,7 +175,7 @@ export function ServicesPillars() {
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-black dark:text-white">
                     <li className="flex items-center gap-2">
                       <Globe className="w-4 h-4 text-[#008035] shrink-0" />
-                      <span>Next.js Web Applications</span>
+                      <span>Web Applications</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Smartphone className="w-4 h-4 text-[#008035] shrink-0" />
@@ -183,7 +183,7 @@ export function ServicesPillars() {
                     </li>
                     <li className="flex items-center gap-2">
                       <Server className="w-4 h-4 text-[#008035] shrink-0" />
-                      <span>Backend APIs & Scalable DB</span>
+                      <span>Systems</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Cpu className="w-4 h-4 text-[#008035] shrink-0" />

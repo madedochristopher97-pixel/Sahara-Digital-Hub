@@ -194,8 +194,9 @@ export function ServicesExplorer() {
       {/* 3. Master Services Catalog with Filter Tabs */}
       <section id="catalog" className="bg-[#F6F3E9] dark:bg-[#121212] py-20 border-y border-black/[0.06] dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col items-center text-center space-y-6 max-w-3xl mx-auto">
             <SectionHeading
+              align="center"
               kicker="Complete Service Directory"
               plainLine="Our Capabilities."
               accentLine="Categorized by Discipline."
@@ -203,7 +204,7 @@ export function ServicesExplorer() {
             />
 
             {/* Filter Buttons */}
-            <div className="flex flex-wrap items-center gap-2 bg-white dark:bg-[#1E1E22] p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-xs">
+            <div className="flex flex-wrap items-center justify-center gap-2 bg-white dark:bg-[#1E1E22] p-1.5 rounded-2xl border border-black/10 dark:border-white/10 shadow-xs">
               <button
                 type="button"
                 onClick={() => setSelectedFilter('all')}

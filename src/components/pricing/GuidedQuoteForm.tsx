@@ -9,7 +9,7 @@ import { Check, Sparkles, Code2, Layers, Send, CheckCircle2, ShieldCheck } from 
 export function GuidedQuoteForm() {
   const [projectCategory, setProjectCategory] = useState<'branding' | 'software' | 'both'>('both');
   const [selectedServices, setSelectedServices] = useState<string[]>([
-    'Website Design & Development',
+    'Web Applications',
     'Visual Identity & Logo Design',
     'M-Pesa Daraja Payment Systems',
   ]);
@@ -36,10 +36,10 @@ export function GuidedQuoteForm() {
   ];
 
   const softwareServices = [
-    'Website Design & Development',
+    'Web Applications',
     'UI/UX & Interactive Prototypes',
     'Mobile App (iOS/Android)',
-    'Backend APIs & Scalable DB',
+    'Systems',
     'M-Pesa Daraja Payment Systems',
     'Maintenance & Cloud Support',
   ];

@@ -56,7 +56,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: {
       text: 'Sahara gave us an identity that looks at home on the shelves of Harrods and Westgate alike. Our wholesale partners immediately recognized the quality shift.',
-      author: '[CLIENT FOUNDER - KENYAN COFFEE ROASTERS]',
+      author: 'David Kariuki',
       role: 'Founder & Head of Roasting',
     },
     highlights: ['Mount Kenya topographic motif', 'Biodegradable matte foil finish', 'Bilingual Swahili & English story'],
@@ -92,7 +92,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: {
       text: 'Our operations team went from chaos to calm in two months. Sahara understood the reality of Kenyan mobile connectivity and built software that never fails on the road.',
-      author: '[CHIEF OPERATING OFFICER - LOGISTICS]',
+      author: 'Wanjiru Mwangi',
       role: 'Chief Operating Officer',
     },
     highlights: ['Sub-second M-Pesa disbursement', 'Offline SQLite syncing engine', 'Real-time GPS route heatmaps'],
@@ -128,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: {
       text: 'Having one agency execute both our institutional brand identity and our core merchant portal was a game changer. The speed and quality were unprecedented.',
-      author: '[CO-FOUNDER & CEO - FINTECH]',
+      author: 'Kevin Otieno',
       role: 'Co-Founder & CEO',
     },
     highlights: ['Micro-settlement webhook queue', 'Multi-tenant bank reconciliation', 'Financial grade encryption'],
@@ -164,7 +164,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: {
       text: 'The lookbook Sahara designed is a work of art. Clients open it and immediately treat our pricing with respect.',
-      author: '[PRINCIPAL ARCHITECT - INTERIOR DESIGN]',
+      author: 'Zainab Hussein',
       role: 'Principal Architect & Founder',
     },
     highlights: ['Bespoke linen bound printing', 'Bespoke typographic rhythm', 'Showroom spatial wayfinding'],
@@ -200,7 +200,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: {
       text: 'Sahara built a healthcare application that is both rock-solid secure and remarkably simple for every grandmother in Kenya to use on her phone.',
-      author: '[CHIEF MEDICAL OFFICER - CLINICAL SERVICES]',
+      author: 'Dr. Brian Ochieng',
       role: 'Chief Medical Officer',
     },
     highlights: ['Zero-lag mobile interface', 'Automated OTP verification', 'Data Protection Act compliant'],
@@ -236,7 +236,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: {
       text: 'The combination of high-end corporate branding and our proprietary telemetry portal transformed how institutional investors perceive us.',
-      author: '[MANAGING DIRECTOR - CLEAN ENERGY]',
+      author: 'Patrick Mutua',
       role: 'Managing Director',
     },
     highlights: ['Live solar inverter telemetry', 'Carbon offset certification pipeline', 'Resilient fleet livery'],

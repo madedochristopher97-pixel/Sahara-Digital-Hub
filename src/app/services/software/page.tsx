@@ -197,16 +197,19 @@ export default function SoftwareServicesPage() {
       {/* 4. Sample Software Work */}
       <section className="bg-[#F6F3E9] dark:bg-[#121212] py-20 border-y border-black/[0.06] dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col items-center text-center space-y-6 max-w-3xl mx-auto">
             <SectionHeading
+              align="center"
               kicker="Production Platforms"
               plainLine="Featured Engineering Projects."
               accentLine="Serving Thousands Daily."
               subhead="From high-speed dispatch systems to automated FinTech reconciliation engines."
             />
-            <Button href="/work" variant="secondary">
-              See All Case Studies
-            </Button>
+            <div className="pt-1">
+              <Button href="/work" variant="secondary">
+                See All Case Studies
+              </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

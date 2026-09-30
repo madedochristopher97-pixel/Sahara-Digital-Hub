@@ -214,8 +214,8 @@ export const softwarePillar: ServicePillar = {
       id: 'website-development',
       category: 'software',
       categoryLabel: 'Software Development',
-      title: 'Website Design & Development',
-      shortDesc: 'Ultra-fast Next.js websites, headless architectures, and editorial platforms.',
+      title: 'Web Applications',
+      shortDesc: 'Ultra-fast web platforms, headless architectures, and dynamic portals.',
       description:
         'Engineered for 90+ Lighthouse performance scores, instant page transitions, strict accessibility, and measurable organic search visibility.',
       deliverables: [
@@ -248,8 +248,8 @@ export const softwarePillar: ServicePillar = {
       id: 'backend-systems',
       category: 'software',
       categoryLabel: 'Software Development',
-      title: 'Backend Systems & Scalable APIs',
-      shortDesc: 'Resilient microservices, relational databases, and enterprise data models.',
+      title: 'Systems',
+      shortDesc: 'Resilient backend microservices, relational databases, and enterprise data models.',
       description:
         'Clean, documented APIs and database schemas designed for data integrity, zero race conditions, and effortless horizontal scalability.',
       deliverables: [
