@@ -115,11 +115,11 @@ export function NotchNavbar({
   const navItems = items || {
     left: [
       { label: 'Home', href: '/', icon: Home },
-      { label: 'Services', href: '/services/branding', icon: Sparkles },
+      { label: 'Services', href: '/services', icon: Sparkles },
       { label: 'Work', href: '/work', icon: Layers },
     ],
     right: [
-      { label: 'Pricing', href: '/pricing', icon: CreditCard },
+      { label: 'Get a Quote', href: '/pricing', icon: CreditCard },
       { label: 'About', href: '/about', icon: User },
       { label: 'Contact', href: '/contact', icon: ArrowUpRight },
     ],

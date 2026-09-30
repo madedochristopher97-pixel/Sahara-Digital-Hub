@@ -4,16 +4,16 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
-import { Check, Sparkles, Code2, Layers, Send, CheckCircle2 } from 'lucide-react';
+import { Check, Sparkles, Code2, Layers, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export function GuidedQuoteForm() {
   const [projectCategory, setProjectCategory] = useState<'branding' | 'software' | 'both'>('both');
   const [selectedServices, setSelectedServices] = useState<string[]>([
-    'Visual Identity & Logo',
-    'Next.js Web Application',
-    'M-Pesa Daraja Payment API',
+    'Website Design & Development',
+    'Visual Identity & Logo Design',
+    'M-Pesa Daraja Payment Systems',
   ]);
-  const [budgetRange, setBudgetRange] = useState<string>('KES 650,000 – KES 1,500,000 ($5k–$12k)');
+  const [projectStage, setProjectStage] = useState<string>('Growth & Market Scaling');
   const [timeline, setTimeline] = useState<string>('4–8 Weeks (Standard Sprint)');
   const [formData, setFormData] = useState({
     name: '',
@@ -27,19 +27,21 @@ export function GuidedQuoteForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const brandingServices = [
-    'Visual Identity & Logo',
+    'Visual Identity & Logo Design',
     'Brand Guidelines Manual',
     'Packaging Design & Dielines',
-    'Billboards & Outdoor Media',
-    'Corporate Collateral & Print',
+    'Billboards & Outdoor Media (OOH)',
+    'Corporate Collateral & Bulk Print',
+    'Merch & Custom Apparel Printing',
   ];
 
   const softwareServices = [
-    'Next.js Web Application',
+    'Website Design & Development',
+    'UI/UX & Interactive Prototypes',
     'Mobile App (iOS/Android)',
-    'M-Pesa Daraja Payment API',
-    'Backend Microservices & DB',
-    'SLA Maintenance & Support',
+    'Backend APIs & Scalable DB',
+    'M-Pesa Daraja Payment Systems',
+    'Maintenance & Cloud Support',
   ];
 
   const toggleService = (srv: string) => {
@@ -52,31 +54,13 @@ export function GuidedQuoteForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    /**
-     * =========================================================================
-     * BACKEND INTEGRATION POINT:
-     * Connect your quote submission endpoint or Resend / SendGrid / WhatsApp webhook here.
-     * Example:
-     * await fetch('/api/quote', {
-     *   method: 'POST',
-     *   headers: { 'Content-Type': 'application/json' },
-     *   body: JSON.stringify({
-     *     projectCategory,
-     *     selectedServices,
-     *     budgetRange,
-     *     timeline,
-     *     ...formData,
-     *     createdAt: new Date().toISOString()
-     *   })
-     * });
-     * =========================================================================
-     */
-    console.log('[Quote Request Dispatched]', {
+    console.log('[Request For Quotation Dispatched]', {
       projectCategory,
       selectedServices,
-      budgetRange,
+      projectStage,
       timeline,
       formData,
+      timestamp: new Date().toISOString(),
     });
 
     setTimeout(() => {
@@ -99,14 +83,14 @@ export function GuidedQuoteForm() {
 
         <div className="space-y-2">
           <Badge variant="green" size="md">
-            Quote Scope Captured
+            Quotation Request Received
           </Badge>
           <h3 className="font-display font-bold text-2xl sm:text-3xl text-black dark:text-white">
-            Asante, {formData.name}!
+            Asante sana, {formData.name}!
           </h3>
-          <p className="text-sm sm:text-base text-[#595854] dark:text-[#A1A1AA] max-w-md mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#595854] dark:text-[#A1A1AA] max-w-md mx-auto leading-relaxed font-body">
             Your project specification has been logged. Our leadership team in Nairobi will review
-            your parameters and send a tailored scope estimate to{' '}
+            your parameters and send a tailored, milestone-based quotation to{' '}
             <strong className="text-black dark:text-white">{formData.email}</strong> within 24 business hours.
           </p>
         </div>
@@ -116,13 +100,13 @@ export function GuidedQuoteForm() {
             <strong className="text-black dark:text-white">Category:</strong> {projectCategory.toUpperCase()}
           </p>
           <p>
-            <strong className="text-black dark:text-white">Budget Bracket:</strong> {budgetRange}
+            <strong className="text-black dark:text-white">Project Scope:</strong> {projectStage}
           </p>
           <p>
-            <strong className="text-black dark:text-white">Timeline:</strong> {timeline}
+            <strong className="text-black dark:text-white">Target Timeline:</strong> {timeline}
           </p>
           <p>
-            <strong className="text-black dark:text-white">Services:</strong> {selectedServices.join(', ')}
+            <strong className="text-black dark:text-white">Selected Inclusions:</strong> {selectedServices.join(', ')}
           </p>
         </div>
 
@@ -132,7 +116,7 @@ export function GuidedQuoteForm() {
             variant="secondary"
             size="sm"
           >
-            Configure Another Project Scope
+            Submit Another Quotation Request
           </Button>
         </div>
       </Card>
@@ -149,13 +133,13 @@ export function GuidedQuoteForm() {
     >
       <div className="space-y-2">
         <Badge variant="green" size="md">
-          Step-by-Step Scope Architect
+          Request for Quotation (RFQ)
         </Badge>
         <h2 className="font-display font-bold text-2xl sm:text-3xl text-black dark:text-white">
-          Configure Your Project Parameters
+          Configure Your Scope & Request a Quotation
         </h2>
         <p className="text-sm text-[#595854] dark:text-[#A1A1AA]">
-          Select your requirements below to receive a realistic, fixed-milestone cost proposal.
+          Tell us about your requirements below. Every project receives an itemized, milestone-based proposal tailored to your technical and creative specifications.
         </p>
       </div>
 
@@ -190,7 +174,7 @@ export function GuidedQuoteForm() {
               }`}
             >
               <Code2 className="w-5 h-5 text-black dark:text-white mb-2" />
-              <p className="font-display font-bold text-sm text-black dark:text-white">Software Engineering</p>
+              <p className="font-display font-bold text-sm text-black dark:text-white">Software Development</p>
               <p className="text-xs text-[#595854] dark:text-[#A1A1AA] mt-1">Next.js, mobile & APIs</p>
             </button>
 
@@ -204,7 +188,7 @@ export function GuidedQuoteForm() {
               }`}
             >
               <Layers className="w-5 h-5 text-[#008035] mb-2" />
-              <p className="font-display font-bold text-sm text-black dark:text-white">Full-Stack Unified</p>
+              <p className="font-display font-bold text-sm text-black dark:text-white">Unified Full-Stack</p>
               <p className="text-xs text-[#595854] dark:text-[#A1A1AA] mt-1">Brand + Software Combined</p>
             </button>
           </div>
@@ -232,9 +216,12 @@ export function GuidedQuoteForm() {
                       : 'border-black/10 dark:border-white/10 bg-white dark:bg-[#1C1C1E] text-[#595854] dark:text-[#A1A1AA] hover:border-black/30 dark:hover:border-white/30'
                   }`}
                 >
-                  <span>{srv}</span>
+                  <span className="flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#008035] shrink-0" />
+                    {srv}
+                  </span>
                   <div
-                    className={`w-4 h-4 rounded-full flex items-center justify-center ${
+                    className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${
                       active ? 'bg-[#008035] text-white' : 'border border-black/20 dark:border-white/20'
                     }`}
                   >
@@ -260,9 +247,12 @@ export function GuidedQuoteForm() {
                       : 'border-black/10 dark:border-white/10 bg-white dark:bg-[#1C1C1E] text-[#595854] dark:text-[#A1A1AA] hover:border-black/30 dark:hover:border-white/30'
                   }`}
                 >
-                  <span>{srv}</span>
+                  <span className="flex items-center gap-1.5">
+                    <Code2 className="w-3.5 h-3.5 text-black dark:text-white shrink-0" />
+                    {srv}
+                  </span>
                   <div
-                    className={`w-4 h-4 rounded-full flex items-center justify-center ${
+                    className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${
                       active ? 'bg-black text-white dark:bg-white dark:text-black' : 'border border-black/20 dark:border-white/20'
                     }`}
                   >
@@ -274,28 +264,28 @@ export function GuidedQuoteForm() {
           </div>
         </div>
 
-        {/* Step 3: Budget Range & Timeline */}
+        {/* Step 3: Project Stage & Target Timeline (No budget ranges!) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-2">
             <label className="text-xs font-bold uppercase tracking-wider text-black dark:text-white block">
-              3. Anticipated Budget Range
+              3. Project Stage & Scope Nature
             </label>
             <select
-              value={budgetRange}
-              onChange={(e) => setBudgetRange(e.target.value)}
+              value={projectStage}
+              onChange={(e) => setProjectStage(e.target.value)}
               className="w-full text-sm px-4 py-3 bg-[#F6F3E9] dark:bg-[#1C1C1E] text-black dark:text-white rounded-xl border border-black/15 dark:border-white/15 focus:outline-none focus:ring-2 focus:ring-[#008035] font-body"
             >
-              <option value="KES 250,000 – KES 500,000 ($1.9k–$3.9k)">
-                KES 250,000 – KES 500,000 ($1.9k–$3.9k)
+              <option value="Early-Stage Foundation / New Venture Launch">
+                Early-Stage Foundation / New Venture Launch
               </option>
-              <option value="KES 650,000 – KES 1,500,000 ($5k–$12k)">
-                KES 650,000 – KES 1,500,000 ($5k–$12k)
+              <option value="Growth & Market Scaling">
+                Growth & Market Scaling
               </option>
-              <option value="KES 1,500,000 – KES 3,000,000 ($12k–$24k)">
-                KES 1,500,000 – KES 3,000,000 ($12k–$24k)
+              <option value="Established Enterprise / Complete Overhaul">
+                Established Enterprise / Complete Overhaul
               </option>
-              <option value="KES 3,000,000+ ($24k+ Enterprise Scope)">
-                KES 3,000,000+ ($24k+ Enterprise Scope)
+              <option value="Single Initiative / Focused Milestone Sprint">
+                Single Initiative / Focused Milestone Sprint
               </option>
             </select>
           </div>
@@ -328,7 +318,7 @@ export function GuidedQuoteForm() {
         {/* Step 4: Contact Details */}
         <div className="space-y-4 pt-4 border-t border-black/10 dark:border-white/10">
           <label className="text-xs font-bold uppercase tracking-wider text-black dark:text-white block">
-            5. Where Should We Send Your Scope Estimate?
+            5. Where Should We Send Your Itemized Quotation?
           </label>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -383,10 +373,11 @@ export function GuidedQuoteForm() {
             disabled={isSubmitting}
             icon={<Send className="w-4 h-4" />}
           >
-            {isSubmitting ? 'Calculating Scope...' : 'Submit Guided Scope Request'}
+            {isSubmitting ? 'Submitting Scope...' : 'Request Project Quotation'}
           </Button>
-          <span className="text-xs text-[#595854] dark:text-[#A1A1AA]">
-            ⚡ Response within 24 hours · Strict non-disclosure honored
+          <span className="text-xs text-[#595854] dark:text-[#A1A1AA] flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-[#008035]" />
+            Itemized proposal delivered within 24 business hours · Strict NDA honored
           </span>
         </div>
       </form>

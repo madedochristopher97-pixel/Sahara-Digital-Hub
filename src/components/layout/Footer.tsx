@@ -32,9 +32,18 @@ export function Footer() {
           {/* Services Links */}
           <div className="lg:col-span-3 space-y-4">
             <h3 className="font-display font-bold text-sm tracking-wider uppercase text-white/90">
-              Services
+              Services & Capabilities
             </h3>
             <ul className="space-y-2.5 text-sm text-white/60">
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-[#008035] transition-colors font-medium text-white/80 inline-flex items-center gap-1 group"
+                >
+                  <span>All Capabilities Directory</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/services/branding"
@@ -61,10 +70,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/branding"
+                  href="/services/software"
                   className="hover:text-[#008035] transition-colors inline-flex items-center gap-1 group"
                 >
-                  <span>Billboards & Outdoor Media (OOH)</span>
+                  <span>Website Design & UI/UX Systems</span>
                 </Link>
               </li>
               <li>
@@ -72,7 +81,7 @@ export function Footer() {
                   href="/services/software"
                   className="hover:text-[#008035] transition-colors inline-flex items-center gap-1 group"
                 >
-                  <span>Modern Next.js Web Development</span>
+                  <span>Next.js Web Platforms & Apps</span>
                 </Link>
               </li>
               <li>
@@ -88,7 +97,7 @@ export function Footer() {
                   href="/services/software"
                   className="hover:text-[#008035] transition-colors inline-flex items-center gap-1 group"
                 >
-                  <span>M-Pesa Daraja Payment Systems</span>
+                  <span>Backend Systems & M-Pesa APIs</span>
                 </Link>
               </li>
             </ul>
@@ -106,13 +115,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/services" className="hover:text-white transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
                 <Link href="/work" className="hover:text-white transition-colors">
                   Case Studies & Work
                 </Link>
               </li>
               <li>
                 <Link href="/pricing" className="hover:text-white transition-colors">
-                  Pricing & Estimates
+                  Request a Quotation
                 </Link>
               </li>
               <li>

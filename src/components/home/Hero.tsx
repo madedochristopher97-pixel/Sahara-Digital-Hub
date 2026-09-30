@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useSyncExternalStore } from 'react';
+import React, { useRef, useSyncExternalStore } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { WaveGridBackground } from '@/components/ui/WaveGridBackground';
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 
 const emptySubscribe = () => () => {};
@@ -18,6 +18,7 @@ function useIsClient() {
 }
 
 export function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const { theme, resolvedTheme } = useTheme();
   const mounted = useIsClient();
@@ -29,10 +30,34 @@ export function Hero() {
   const colorBase = isDark ? '#141416' : '#ffffff';
   const colorHigh = isDark ? '#00e050' : '#008035';
 
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const heroParallaxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? [0, 0] : [0, 70]
+  );
+  const bgParallaxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? [0, 0] : [0, 35]
+  );
+  const heroOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.85, 1],
+    shouldReduceMotion ? [1, 1, 1] : [1, 0.85, 0.3]
+  );
+
   return (
-    <section className="relative overflow-hidden pt-12 sm:pt-20 lg:pt-28 pb-20 sm:pb-28 lg:pb-36 flex items-center justify-center min-h-[85vh]">
-      {/* Interactive 3D Wave Grid Background with Green Mouse Ripples */}
-      <div className="absolute inset-0 w-full h-full z-0">
+    <section
+      ref={heroRef}
+      className="relative overflow-hidden pt-12 sm:pt-20 lg:pt-28 pb-20 sm:pb-28 lg:pb-36 flex items-center justify-center min-h-[85vh]"
+    >
+      {/* Interactive 3D Wave Grid Background with Parallax Depth */}
+      <motion.div style={{ y: bgParallaxY }} className="absolute inset-0 w-full h-full z-0">
         <WaveGridBackground
           colorBase={colorBase}
           colorHigh={colorHigh}
@@ -41,9 +66,12 @@ export function Hero() {
         />
         {/* Soft edge blend for smooth integration with notch header and trust strip */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFFDF6]/60 via-transparent to-[#FFFDF6] dark:from-black/60 dark:via-transparent dark:to-[#0A0A0A] pointer-events-none" />
-      </div>
+      </motion.div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center pointer-events-none">
+      <motion.div
+        style={{ y: heroParallaxY, opacity: heroOpacity }}
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center pointer-events-none"
+      >
         {/* Kicker Line */}
         <motion.div
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 12 }}
@@ -114,8 +142,8 @@ export function Hero() {
           <Button href="/contact" size="lg" variant="primary" icon={<ArrowRight className="w-4 h-4" />}>
             Tell us what you&apos;re building
           </Button>
-          <Button href="/work" size="lg" variant="secondary">
-            See Our Work
+          <Button href="/services" size="lg" variant="secondary">
+            Explore Capabilities
           </Button>
         </motion.div>
 
@@ -139,7 +167,7 @@ export function Hero() {
             Lighthouse 90+ Web Standards
           </span>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
