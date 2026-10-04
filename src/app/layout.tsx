@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ChatWidget } from '@/components/chatbot/ChatWidget';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { InitialPreloader } from '@/components/ui/InitialPreloader';
+import { CookieConsent } from '@/components/ui/CookieConsent';
 
 /**
  * Typography System (100% Locally Sourced)
@@ -160,6 +161,9 @@ export default function RootLayout({
 
           {/* Global Floating AI Assistant Widget */}
           <ChatWidget />
+
+          {/* Cookie consent banner (gates any optional analytics/marketing scripts) */}
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

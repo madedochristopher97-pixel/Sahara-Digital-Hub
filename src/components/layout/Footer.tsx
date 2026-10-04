@@ -246,7 +246,8 @@ export function Footer() {
             &copy; {currentYear} Sahara Digital Hub. All rights reserved. Registered in Kenya.
           </p>
           <div className="flex items-center gap-6">
-            <span className="text-white/40">Kenyan Creative & Engineering Authority</span>
+            <Link href="/privacy" className="hover:text-white">Privacy</Link>
+            <Link href="/cookies" className="hover:text-white">Cookies</Link>
             <Link href="/pricing#quote" className="hover:text-white text-[#008035] font-semibold flex items-center gap-1">
               <span>Start a Project</span>
               <ArrowUpRight className="w-3 h-3" />
