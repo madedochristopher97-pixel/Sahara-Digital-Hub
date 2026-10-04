@@ -7,6 +7,7 @@ import { ChatWidget } from '@/components/chatbot/ChatWidget';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { InitialPreloader } from '@/components/ui/InitialPreloader';
 import { CookieConsent } from '@/components/ui/CookieConsent';
+import { GoogleAnalytics } from '@/components/ui/GoogleAnalytics';
 
 /**
  * Typography System (100% Locally Sourced)
@@ -164,6 +165,7 @@ export default function RootLayout({
 
           {/* Cookie consent banner (gates any optional analytics/marketing scripts) */}
           <CookieConsent />
+          <GoogleAnalytics />
         </ThemeProvider>
       </body>
     </html>
