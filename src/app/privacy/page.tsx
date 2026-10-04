@@ -34,8 +34,9 @@ export default function PrivacyPolicyPage() {
             project details).
           </li>
           <li>
-            Technical data such as browser type and pages visited, only where you have accepted analytics
-            cookies.
+            Technical and usage data (pages visited, approximate location, device and browser type,
+            referring site) collected through Google Analytics, only where you have accepted analytics
+            cookies. Google acts as our processor for this data and may process it outside Kenya.
           </li>
         </ul>
       </section>

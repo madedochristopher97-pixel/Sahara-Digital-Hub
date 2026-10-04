@@ -37,8 +37,12 @@ export default function CookiePolicyPage() {
             light/dark theme preference. These do not need consent.
           </li>
           <li>
-            <strong className={strong}>Analytics (optional):</strong> if we enable analytics tools to
-            understand how visitors use the site, they will only run after you accept.
+            <strong className={strong}>Analytics (optional):</strong> we use Google Analytics 4, provided by
+            Google, to understand which pages are visited and how visitors find and use the site. It sets
+            the cookies <code>_ga</code> and <code>_ga_*</code> (up to two years) and only loads after you
+            choose &ldquo;Accept all&rdquo;. It records pages viewed, approximate location, device and
+            browser type, and referring site. We have IP anonymisation switched on. Google may process this
+            data on servers outside Kenya.
           </li>
           <li>
             <strong className={strong}>Marketing (optional):</strong> if we use advertising or retargeting
@@ -50,8 +54,10 @@ export default function CookiePolicyPage() {
       <section className="space-y-2">
         <h2 className={h2}>Managing your choices</h2>
         <p>
-          You can change or withdraw your consent at any time using the button below, and you can block or
-          delete cookies in your browser settings. Blocking necessary storage may affect site features.
+          You can change or withdraw your consent at any time using the button below. If you withdraw
+          consent, analytics stops straight away and we remove the Google Analytics cookies from your
+          browser. You can also block or delete cookies in your browser settings. Blocking necessary
+          storage may affect site features.
         </p>
         <CookieSettingsButton />
       </section>

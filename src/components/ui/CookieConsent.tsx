@@ -1,22 +1,40 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 
 const STORAGE_KEY = 'sahara-cookie-consent';
 const OPEN_EVENT = 'sahara-cookie-settings';
-const CHANGE_EVENT = 'sahara-cookie-consent-change';
+export const CONSENT_CHANGE_EVENT = 'sahara-cookie-consent-change';
 
 export type ConsentChoice = 'accepted' | 'rejected';
+
+// Fallback for browsers where localStorage is unavailable: the choice then
+// lasts for this page view only.
+let sessionChoice: ConsentChoice | null = null;
 
 /** Returns the stored choice, or null if the visitor has not decided yet. */
 export function getCookieConsent(): ConsentChoice | null {
   try {
     const value = localStorage.getItem(STORAGE_KEY);
-    return value === 'accepted' || value === 'rejected' ? value : null;
+    if (value === 'accepted' || value === 'rejected') return value;
   } catch {
-    return null;
+    // Storage unavailable; fall through to the in-memory choice.
   }
+  return sessionChoice;
+}
+
+/**
+ * Subscribe to consent changes (banner, "Cookie settings" button, or another
+ * tab). Pair with getCookieConsent in useSyncExternalStore.
+ */
+export function subscribeToCookieConsent(onChange: () => void) {
+  window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
+  window.addEventListener('storage', onChange);
+  return () => {
+    window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+    window.removeEventListener('storage', onChange);
+  };
 }
 
 export function CookieSettingsButton() {
@@ -32,27 +50,30 @@ export function CookieSettingsButton() {
 }
 
 /**
- * Consent banner. Any future analytics/marketing script should only load when
- * getCookieConsent() === 'accepted' (listen for CHANGE_EVENT to react live).
+ * Consent banner. Any analytics/marketing script should only load when
+ * getCookieConsent() === 'accepted' (use subscribeToCookieConsent to react live).
  */
 export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+  // Server snapshot is 'accepted' so the banner never renders during SSR.
+  const consent = useSyncExternalStore(subscribeToCookieConsent, getCookieConsent, () => 'accepted' as const);
+  const [reopened, setReopened] = useState(false);
+  const visible = reopened || consent === null;
 
   useEffect(() => {
-    if (getCookieConsent() === null) setVisible(true);
-    const open = () => setVisible(true);
+    const open = () => setReopened(true);
     window.addEventListener(OPEN_EVENT, open);
     return () => window.removeEventListener(OPEN_EVENT, open);
   }, []);
 
   const choose = (choice: ConsentChoice) => {
+    sessionChoice = choice;
     try {
       localStorage.setItem(STORAGE_KEY, choice);
     } catch {
       // Storage unavailable; the choice applies to this page view only.
     }
-    window.dispatchEvent(new CustomEvent(CHANGE_EVENT, { detail: choice }));
-    setVisible(false);
+    window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: choice }));
+    setReopened(false);
   };
 
   if (!visible) return null;
