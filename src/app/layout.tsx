@@ -83,7 +83,7 @@ const urbanist = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://saharadigital.co.ke'),
+  metadataBase: new URL('https://www.saharadigitalhub.com'),
   title: {
     default: 'Sahara Digital Hub — Branding & Software Agency in Nairobi, Kenya',
     template: '%s | Sahara Digital Hub',
@@ -110,7 +110,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_KE',
-    url: 'https://saharadigital.co.ke',
+    url: 'https://www.saharadigitalhub.com',
     siteName: 'Sahara Digital Hub',
     title: 'Sahara Digital Hub — Branding & Software for Market Leaders',
     description:

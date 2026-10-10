@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { caseStudies } from '@/data/caseStudies';
 
-const BASE_URL = 'https://saharadigital.co.ke';
+const BASE_URL = 'https://www.saharadigitalhub.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
