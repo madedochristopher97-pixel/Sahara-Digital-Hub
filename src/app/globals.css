@@ -56,7 +56,6 @@
 
 /* Base Body Styles */
 html {
-  scroll-behavior: smooth;
   background-color: var(--color-background);
   color: var(--color-foreground);
 }

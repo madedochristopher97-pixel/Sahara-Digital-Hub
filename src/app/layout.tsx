@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ChatWidget } from '@/components/chatbot/ChatWidget';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { InitialPreloader } from '@/components/ui/InitialPreloader';
+import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { CookieConsent } from '@/components/ui/CookieConsent';
 import { GoogleAnalytics } from '@/components/ui/GoogleAnalytics';
 
@@ -131,13 +132,14 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${grain.variable} ${urbanist.variable} h-full scroll-smooth`}
+      className={`${grain.variable} ${urbanist.variable} h-full`}
     >
       <body
         suppressHydrationWarning
         className="min-h-full flex flex-col font-body bg-[#FFFDF6] dark:bg-black text-black dark:text-white selection:bg-[#008035] selection:text-white transition-colors duration-200"
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <SmoothScroll>
           {/* Initial Website Preloader with Sahara Branded Kinetic Typography */}
           <InitialPreloader />
 
@@ -166,6 +168,7 @@ export default function RootLayout({
           {/* Cookie consent banner (gates any optional analytics/marketing scripts) */}
           <CookieConsent />
           <GoogleAnalytics />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

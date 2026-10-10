@@ -606,7 +606,7 @@ export function ChatWidget() {
             </div>
 
             {/* Message Thread */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 text-sm bg-[#FFFDF6] dark:bg-[#121212]">
+            <div data-lenis-prevent className="flex-1 overflow-y-auto p-4 space-y-3.5 text-sm bg-[#FFFDF6] dark:bg-[#121212]">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
