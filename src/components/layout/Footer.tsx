@@ -186,7 +186,7 @@ export function Footer() {
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#008035] shrink-0" />
                 <a
-                  href={`tel:${brandTokens.agency.phone}`}
+                  href={`tel:${brandTokens.agency.phoneHref}`}
                   className="hover:text-[#008035] transition-colors"
                 >
                   {brandTokens.agency.phone}

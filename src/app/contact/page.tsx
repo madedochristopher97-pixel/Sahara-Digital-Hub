@@ -132,7 +132,7 @@ export default function ContactPage() {
 
               {/* Phone */}
               <a
-                href={`tel:${brandTokens.agency.phone}`}
+                href={`tel:${brandTokens.agency.phoneHref}`}
                 className="p-5 rounded-2xl bg-white dark:bg-[#18181B] border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 flex items-center justify-between transition-all group block"
               >
                 <div className="flex items-center gap-4">

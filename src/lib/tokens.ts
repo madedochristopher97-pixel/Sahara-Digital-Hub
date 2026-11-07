@@ -54,9 +54,10 @@ export const brandTokens = {
     dormantYear: 2024,
     relaunchYear: 2026,
     email: 'hello@saharadigital.co.ke',
-    phone: '+254 700 000 000',
-    whatsapp: '254700000000',
-    whatsappUrl: 'https://wa.me/254700000000?text=Hello%20Sahara%20Digital%20Hub,%20I%20would%20like%20to%20inquire%20about%20a%20project.',
+    phone: '0746 888 398',
+    phoneHref: '+254746888398',
+    whatsapp: '254746888398',
+    whatsappUrl: 'https://wa.me/254746888398?text=Hello%20Sahara%20Digital%20Hub,%20I%20would%20like%20to%20inquire%20about%20a%20project.',
     socials: {
       linkedin: 'https://linkedin.com/company/sahara-digital-hub',
       twitter: 'https://twitter.com/saharadigitalhub',
