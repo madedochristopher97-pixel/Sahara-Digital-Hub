@@ -53,7 +53,7 @@ export const brandTokens = {
     foundedYear: 2021,
     dormantYear: 2024,
     relaunchYear: 2026,
-    email: 'hello@saharadigital.co.ke',
+    email: 'hello@saharadigitalhub.com',
     phone: '0746 888 398',
     phoneHref: '+254746888398',
     whatsapp: '254746888398',
